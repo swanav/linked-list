@@ -1,4 +1,5 @@
 ![CMake](https://github.com/swanav/LinkedList/workflows/CMake/badge.svg)
+![CodeQL](https://github.com/swanav/LinkedList/workflows/CodeQL/badge.svg)
 
 # Linked List
 
