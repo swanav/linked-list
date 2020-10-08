@@ -1,3 +1,5 @@
+![CMake](https://github.com/swanav/LinkedList/workflows/CMake/badge.svg)
+
 # Linked List
 
 # API Documentation
