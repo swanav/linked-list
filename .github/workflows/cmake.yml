@@ -35,8 +35,17 @@ jobs:
       shell: bash
       run: make coverage
       
-    - uses: codecov/codecov-action@v1.0.13
+    - name: Upload Code Coverage Reports to CodeCov
+      uses: codecov/codecov-action@v1.0.13
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+        directory: ${{runner.workspace}}/build
+        path_to_write_report: ${{runner.workspace}}/coverage
         flags: unittests
         name: LinkedList
+        
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.0
+      with:
+        name: Coverage Report
+        path: ${{runner.workspace}}/coverage
