@@ -37,7 +37,7 @@ jobs:
     - name: Code Coverage
       working-directory: ${{runner.workspace}}/build
       shell: bash
-      run: apt-get install gcovr && gcovr -r $GITHUB_WORKSPACE . -s --xml-pretty -o coverage.xml
+      run: sudo apt-get install gcovr && gcovr -r $GITHUB_WORKSPACE . -s --xml-pretty -o coverage.xml
 
     - name: Upload Code Coverage Reports to CodeCov.io
       uses: codecov/codecov-action@v1.0.13
