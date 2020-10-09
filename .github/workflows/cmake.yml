@@ -39,6 +39,6 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         directory: ${{runner.workspace}}/build
-        files: ./coverage.xml,./coverage1.xml
+        files: coverage.xml,coverage1.xml
         flags: unittests
         name: LinkedList
