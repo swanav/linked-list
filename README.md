@@ -1,5 +1,6 @@
 ![CMake](https://github.com/swanav/LinkedList/workflows/CMake/badge.svg)
 ![CodeQL](https://github.com/swanav/LinkedList/workflows/CodeQL/badge.svg)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fswanav%2FLinkedList.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fswanav%2FLinkedList?ref=badge_shield)
 
 # Linked List
 
@@ -130,3 +131,8 @@ typedef void (*FreeMethod)(void* listItem);
 ```
 Callback Method for each item in the iteration of the linked list
 - **param** [listItem](#) - Pointer to the item to be freed. 
+
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fswanav%2FLinkedList.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fswanav%2FLinkedList?ref=badge_large)
+
