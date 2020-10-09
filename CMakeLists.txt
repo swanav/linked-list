@@ -10,6 +10,10 @@ set(PROJECT_VERSION_MAJOR 1)
 set(PROJECT_VERSION_MINOR 0)
 set(PROJECT_VERSION_PATCH 0)
 
+set(USE_GCOV ON)
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
+include (gcovr)
+
 # Main Library
 add_library(LinkedList lib/linked_list.c)
 target_include_directories(LinkedList PUBLIC lib)
@@ -24,3 +28,5 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 		add_subdirectory(tests)
 	endif()
 endif()
+
+
