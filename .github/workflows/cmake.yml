@@ -17,21 +17,21 @@ jobs:
 
     - name: Configure CMake
       shell: bash
-      working-directory: ${{runner.workspace}}
+      working-directory: ${{runner.workspace}}/LinkedList
       run: ls -al && cmake . -DBUILD_TESTING=On -DBUILD_EXAMPLE=On -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
-      working-directory: ${{runner.workspace}}
+      working-directory: ${{runner.workspace}}/LinkedList
       shell: bash
       run: cmake --build . --config $BUILD_TYPE
 
     - name: Test
-      working-directory: ${{runner.workspace}}
+      working-directory: ${{runner.workspace}}/LinkedList
       shell: bash
       run: ctest -C $BUILD_TYPE
       
     - name: Code Coverage
-      working-directory: ${{runner.workspace}}
+      working-directory: ${{runner.workspace}}/LinkedList
       shell: bash
       run: make coverage && cat coverage.xml
       
@@ -39,7 +39,7 @@ jobs:
       uses: codecov/codecov-action@v1.0.13
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        directory: ${{runner.workspace}}
+        directory: ${{runner.workspace}}/LinkedList
         path_to_write_report: ${{runner.workspace}}/coverage
         flags: unittests
         name: LinkedList
