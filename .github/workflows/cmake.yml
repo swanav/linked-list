@@ -33,7 +33,7 @@ jobs:
     - name: Code Coverage
       working-directory: ${{runner.workspace}}/build
       shell: bash
-      run: make coverage
+      run: make coverage && cat coverage.xml
       
     - name: Upload Code Coverage Reports to CodeCov
       uses: codecov/codecov-action@v1.0.13
