@@ -18,7 +18,7 @@ jobs:
     - name: Configure CMake
       shell: bash
       working-directory: ${{runner.workspace}}
-      run: cmake . -DBUILD_TESTING=On -DBUILD_EXAMPLE=On -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+      run: ls -al && cmake . -DBUILD_TESTING=On -DBUILD_EXAMPLE=On -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
       working-directory: ${{runner.workspace}}
