@@ -133,6 +133,5 @@ Callback Method for each item in the iteration of the linked list
 - **param** [listItem](#) - Pointer to the item to be freed. 
 
 
-
+## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fswanav%2FLinkedList.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fswanav%2FLinkedList?ref=badge_large)
-
