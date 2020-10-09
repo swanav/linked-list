@@ -4,6 +4,7 @@ on: [push]
 
 env:
   BUILD_TYPE: Debug
+  BUILD_DIRECTORY: ${{runner.workspace}}/build
 
 jobs:
   build:
@@ -12,40 +13,37 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    # - name: Create Build Environment
-    #  run: cmake -E make_directory ${{runner.workspace}}/build
+    - name: Create Build Environment
+     run: cmake -E make_directory $BUILD_DIRECTORY
 
     - name: Configure CMake
       shell: bash
-      working-directory: ${{runner.workspace}}/LinkedList
-      run: ls -al && cmake . -DBUILD_TESTING=On -DBUILD_EXAMPLE=On -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+      working-directory: $BUILD_DIRECTORY
+      run: cmake $GITHUB_WORKSPACE -DBUILD_TESTING=On -DBUILD_EXAMPLE=On -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
-      working-directory: ${{runner.workspace}}/LinkedList
+      working-directory: $BUILD_DIRECTORY
       shell: bash
       run: cmake --build . --config $BUILD_TYPE
 
     - name: Test
-      working-directory: ${{runner.workspace}}/LinkedList
+      working-directory: $BUILD_DIRECTORY
       shell: bash
       run: ctest -C $BUILD_TYPE
       
+    # - name: Code Coverage
+    #   working-directory: $BUILD_DIRECTORY
+    #   shell: bash
+    #   run: make coverage && cat coverage.xml
     - name: Code Coverage
-      working-directory: ${{runner.workspace}}/LinkedList
+      working-directory: $BUILD_DIRECTORY
       shell: bash
-      run: make coverage && cat coverage.xml
-      
-    - name: Upload Code Coverage Reports to CodeCov
+      run: apt-get install gcovr && gcovr -r $GITHUB_WORKSPACE . -s --xml-pretty -o coverage.xml
+
+    - name: Upload Code Coverage Reports to CodeCov.io
       uses: codecov/codecov-action@v1.0.13
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        directory: ${{runner.workspace}}/LinkedList
-        path_to_write_report: ${{runner.workspace}}/coverage
+        directory: $BUILD_DIRECTORY
         flags: unittests
         name: LinkedList
-        
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.0
-      with:
-        name: Coverage Report
-        path: ${{runner.workspace}}/coverage
