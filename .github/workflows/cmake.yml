@@ -19,26 +19,21 @@ jobs:
 
     - name: Create Build Directory
       shell: bash
-      working-directory: $GITHUB_WORKSPACE
       run: mkdir build && ls -al && pwd
 
     - name: Configure CMake
       shell: bash
-      working-directory: $BUILD_DIRECTORY
       run: cmake $GITHUB_WORKSPACE -DBUILD_TESTING=On -DBUILD_EXAMPLE=On -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
-      working-directory: $BUILD_DIRECTORY
       shell: bash
       run: cmake --build . --config $BUILD_TYPE
 
     - name: Test
-      working-directory: $BUILD_DIRECTORY
       shell: bash
       run: ctest -C $BUILD_TYPE
       
     - name: Code Coverage
-      working-directory: $BUILD_DIRECTORY
       shell: bash
       run: sudo apt-get install gcovr && make GenerateCoverage && cat Coverage.xml
 
