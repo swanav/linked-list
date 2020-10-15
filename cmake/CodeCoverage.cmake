@@ -114,7 +114,7 @@ FUNCTION(SETUP_TARGET_FOR_COVERAGE _targetname _testrunner _outputname)
 		# Capturing lcov counters and generating report
         #COMMAND ${LCOV_PATH} --directory . --capture --output-file ${_outputname}.info
 		COMMAND ${LCOV_PATH} --directory . --capture --output-file ${_outputname}.info --rc lcov_branch_coverage=1
-		COMMAND ${LCOV_PATH} --remove ${_outputname}.info 'build/*' 'tests/*' '/usr/*' --output-file ${_outputname}.info.cleaned
+		COMMAND ${LCOV_PATH} --remove ${_outputname}.info 'build/*' '*/googletest-*/*' '*/tests/*' '/usr/*' --output-file ${_outputname}.info.cleaned
 		COMMAND ${GENHTML_PATH} -o ${_outputname} ${_outputname}.info.cleaned
 		COMMAND ${CMAKE_COMMAND} -E remove ${_outputname}.info ${_outputname}.info.cleaned
 		
@@ -151,7 +151,7 @@ FUNCTION(SETUP_TARGET_FOR_COVERAGE_COBERTURA _targetname _testrunner _outputname
 		${_testrunner} ${ARGV3}
 
 		# Running gcovr
-		COMMAND ${GCOVR_PATH} -x -r ${CMAKE_SOURCE_DIR} -e '${CMAKE_SOURCE_DIR}/tests/' -e'${CMAKE_SOURCE_DIR}/examples/' -e'${CMAKE_SOURCE_DIR}/build/'  -o ${_outputname}.xml
+		COMMAND ${GCOVR_PATH} -x -r ${CMAKE_SOURCE_DIR} -e '${CMAKE_BINARY_DIR}/googletest-*/**' -e '${CMAKE_SOURCE_DIR}/tests/' -e'${CMAKE_SOURCE_DIR}/examples/' -e'${CMAKE_SOURCE_DIR}/build/'  -o ${_outputname}.xml
 		WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 		COMMENT "Running gcovr to produce Cobertura code coverage report."
 	)
