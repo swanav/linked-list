@@ -7,8 +7,9 @@
 #define LINKED_LIST_LOGGING 0
 #endif
 
-#undef NULL
+#ifndef NULL
 #define NULL 0
+#endif
 
 /**
  *   Callback Method template for search operation in a LinkedList
