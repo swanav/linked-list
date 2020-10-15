@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 project(
     LinkedList
-    LANGUAGES C
+    LANGUAGES C CXX
     DESCRIPTION "A singly Linked List implementation."
 )
 
@@ -19,8 +19,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 		if(Python_Interpreter_FOUND)
 			set(PYTHON_EXECUTABLE ${Python_EXECUTABLE})
 		endif()
-		include( cmake/CodeCoverage.cmake )
-
+		include( cmake_modules/CodeCoverage.cmake )
 		SET(GCC_COVERAGE_COMPILE_FLAGS "-g -O0 --coverage -fprofile-arcs -ftest-coverage")
 		SET(GCC_COVERAGE_LINK_FLAGS    "-lgcov")
 		SET(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
