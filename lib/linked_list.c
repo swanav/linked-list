@@ -91,11 +91,6 @@ void* linked_list_Remove ( LinkedListRef** list, void* item ) {
 
     LinkedListRef* prev = *list;
 
-    if ( !prev ) {
-        // List is empty
-        return NULL;
-    }
-
     LinkedListRef* toRemove = prev->next;
     void* toReturn = NULL;
 
