@@ -5,7 +5,7 @@ on: [push]
 env:
   BUILD_TYPE: Debug
   SOURCE_DIRECTORY: ${{ github.workspace }}
-  BUILD_DIRECTORY: ${{ format('{0}/{1}', runner.workspace, 'build') }}
+  BUILD_DIRECTORY: ${{ format('{0}/{1}', github.workspace, 'build') }}
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
     - name: Configure CMake
       shell: bash
       working-directory: $BUILD_DIRECTORY
-      run: cmake $SOURCE_DIRECTORY -DBUILD_TESTING=On -DBUILD_EXAMPLE=On -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+      run: cmake $GITHUB_WORKSPACE -DBUILD_TESTING=On -DBUILD_EXAMPLE=On -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
       working-directory: $BUILD_DIRECTORY
@@ -32,10 +32,6 @@ jobs:
       shell: bash
       run: ctest -C $BUILD_TYPE
       
-    # - name: Code Coverage
-    #   working-directory: ${{runner.workspace}}/build
-    #   shell: bash
-    #   run: make coverage && cat coverage.xml
     - name: Code Coverage
       working-directory: $BUILD_DIRECTORY
       shell: bash
