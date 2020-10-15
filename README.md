@@ -9,16 +9,6 @@
 
 <hr/>
 
-## <a name='linked_list_Create'></a> Create a Linked List
-
-```c
-LinkedListRef* linked_list_Create ();
-```
-Creates a new Linked List. Allocating memory on the heap.
-
-- **returns** [LinkedList*](#LinkedListRef) Reference to the created LinkedList
-
-<hr/>
 
 ## <a href='#linked_list_Drop'></a> Drop a Linked List
 
