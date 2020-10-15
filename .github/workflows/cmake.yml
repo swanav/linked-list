@@ -4,7 +4,7 @@ on: [push]
 
 env:
   BUILD_TYPE: Debug
-  BUILD_DIRECTORY: ${{ format('{0}/build', $GITHUB_WORKSPACE) }}
+  BUILD_DIRECTORY: ${{ join([${{github.workspace}},'build'], '/') }}
 
 jobs:
   build:
