@@ -42,14 +42,6 @@ typedef struct __linked_list_item_ref LinkedListRef;
 
 
 /**
- * @brief Create a new Linked List
- * 
- * @returns Reference to the created LinkedList
- * 
- */
-LinkedListRef* linked_list_Create ();
-
-/**
  * @brief Insert a new Item to the LinkedList
  * 
  * @param list Reference to the LinkedList

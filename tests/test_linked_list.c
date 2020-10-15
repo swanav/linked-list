@@ -9,11 +9,13 @@ struct node {
 };
 
 bool SearchItem(void* item, void* userData) {
-    return ((struct node*) item)->key == 7;
+	int searchKey = *((int*) userData);
+    return ((struct node*) item)->key == searchKey;
 }
 
-void ListCallbackMethod(int index, void* item, void* userData) {
-    printf("%d %d\n", index, ((struct node*) item)->data);
+void ListCallbackMethod(int index, void* listItem, void* userData) {
+    struct node* item = (struct node*) listItem;
+	printf("%d) %d:%d\n", index, item->key, item->data);
 }
 
 void FreeCallbackMethod(void* item) {
@@ -55,17 +57,54 @@ int main() {
 
     linked_list_Insert(list, item5);
 
-    struct node* searchItem = (struct node*) linked_list_Search ( list, SearchItem, NULL );
+	linked_list_Iterate(list, NULL, NULL);
+
+	linked_list_Iterate(list, ListCallbackMethod, NULL);
+
+	int searchKey = 9;
+    struct node* searchItem = (struct node*) linked_list_Search ( list, SearchItem, &searchKey );
 
     if(!searchItem) {
         fprintf(stderr, "Item not found\n");
-        return 1;
+    }
+
+	searchKey = 2;
+	searchItem = (struct node*) linked_list_Search ( list, SearchItem, &searchKey );
+
+	if(searchItem) {
+        fprintf(stderr, "Item found: key-> %d, data->%d\n", searchKey, ((struct node*)searchItem)->data );
     }
 
     struct node* removeItem = (struct node*) linked_list_Remove ( list, searchItem );
     free(removeItem);
 
+	searchKey = 2;
+	searchItem = (struct node*) linked_list_Search ( list, NULL, &searchKey );
+
+	if(!searchItem) {
+        fprintf(stderr, "Item not found\n");
+    }
+
+	linked_list_Remove ( list, NULL );
+
+
+    linked_list_Drop ( list, NULL );
+
+
     linked_list_Drop ( list, FreeCallbackMethod );
+
+    LinkedListRef* _list_empty = NULL;
+    LinkedListRef** list_empty = &_list_empty;
+
+	linked_list_Drop ( list_empty, NULL );
+
+	linked_list_Insert ( list_empty, NULL );
+
+	linked_list_Iterate ( list_empty, NULL, NULL );
+
+	linked_list_Search ( list_empty, NULL, NULL );
+
+	linked_list_Remove ( list_empty, NULL );
 
     return 0;
 }
