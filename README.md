@@ -10,20 +10,6 @@
 <hr/>
 
 
-## <a href='#linked_list_Drop'></a> Drop a Linked List
-
-```c
-void linked_list_Drop ( LinkedListRef** list, FreeMethod freeCallback );
-```
-
-Free the complete Linked List and the data it contains.
-
- - **param** [list](#LinkedListRef) - Reference to the LinkedList.
- - **param** [freeCallback](#FreeMethodCallback) - Callback Method called for each item removed from linked list. 
- - **@warning** Developer __*should*__ free the memory of that item in this callback.
-
-<hr/>
-
 ## <a name='linked_list_Insert'></a> Insert an item
 ```c
 void linked_list_Insert ( LinkedListRef** list, void* item );
@@ -77,6 +63,19 @@ Search for an item in the LinkedList
  - **param** [userData](#) - A pointer which is sent to the callback method. 
  - **returns** [void*](#) Reference to the item found as a result of the search, NULL if item not found.
 
+<hr/>
+
+## <a href='#linked_list_Drop'></a> Drop a Linked List
+
+```c
+void linked_list_Drop ( LinkedListRef** list, FreeMethod freeCallback );
+```
+
+Free the complete Linked List and the data it contains.
+
+ - **param** [list](#LinkedListRef) - Reference to the LinkedList.
+ - **param** [freeCallback](#FreeMethodCallback) - Callback Method called for each item removed from linked list. 
+ - **@warning** Developer __*should*__ free the memory of that item in this callback.
 
 
 # Type Definitions
