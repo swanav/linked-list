@@ -14,8 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Create Build Environment
-      run: cmake -E make_directory $BUILD_DIRECTORY
+    # - name: Create Build Environment
+    #   run: cmake -E make_directory $BUILD_DIRECTORY
+
+    - name: Create Build Directory
+      shell: bash
+      working-directory: $GITHUB_WORKSPACE
+      run: mkdir build && ls -al && pwd
 
     - name: Configure CMake
       shell: bash
