@@ -5,7 +5,7 @@ on: [push]
 env:
   BUILD_TYPE: Debug
   SOURCE_DIRECTORY: ${{ github.workspace }}
-  BUILD_DIRECTORY: ${{ format('{0}/{1}', github.workspace, 'build') }}
+  BUILD_DIRECTORY: ${{ format('{0}/{1}', runner.workspace, 'build') }}
 
 jobs:
   build:
