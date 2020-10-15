@@ -20,7 +20,7 @@ jobs:
     - name: Configure CMake
       shell: bash
       working-directory: $BUILD_DIRECTORY
-      run: cmake -S $SOURCE_DIRECTORY -B $BUILD_DIRECTORY -DBUILD_TESTING=On -DBUILD_EXAMPLE=On -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+      run: cmake $SOURCE_DIRECTORY -DBUILD_TESTING=On -DBUILD_EXAMPLE=On -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
       working-directory: $BUILD_DIRECTORY
