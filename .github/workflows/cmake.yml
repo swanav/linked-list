@@ -10,7 +10,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-      
+
     steps:
     - uses: actions/checkout@v2
 
@@ -33,7 +33,7 @@ jobs:
     - name: Test
       shell: bash
       run: ctest -C $BUILD_TYPE
-      
+
     - name: Code Coverage
       shell: bash
       run: make GenerateCoverage && cat Coverage.xml
