@@ -70,7 +70,6 @@ TEST(linked_list_Insert, ShouldReturnGracefullyIfMallocFails) {
 
 	// Use some other malloc routine
     linked_list_Insert(list, item1);
-
 }
 
 TEST(linked_list_Iterate, ShouldNotIterateEmptyList) {
@@ -78,7 +77,6 @@ TEST(linked_list_Iterate, ShouldNotIterateEmptyList) {
     LinkedListRef** list = &_list;
 
 	linked_list_Iterate(list, NULL, NULL);
-
 }
 
 TEST(linked_list_Iterate, ShouldNotIterateListWithoutACallbackMethod) {
@@ -91,7 +89,6 @@ TEST(linked_list_Iterate, ShouldNotIterateListWithoutACallbackMethod) {
     linked_list_Insert(list, item1);
 
 	linked_list_Iterate(list, NULL, NULL);
-
 }
 
 TEST(linked_list_Iterate, ShouldIterateAValidList) {
@@ -104,7 +101,6 @@ TEST(linked_list_Iterate, ShouldIterateAValidList) {
     linked_list_Insert(list, item1);
 
 	linked_list_Iterate(list, ListCallbackMethod, NULL);
-
 }
 
 TEST(linked_list_Search, ShouldNotSearchEmptyList) {
@@ -112,7 +108,6 @@ TEST(linked_list_Search, ShouldNotSearchEmptyList) {
     LinkedListRef** list = &_list;
 
 	linked_list_Search(list, NULL, NULL);
-
 }
 
 TEST(linked_list_Search, ShouldNotSearchListWithoutACallbackMethod) {
@@ -125,7 +120,6 @@ TEST(linked_list_Search, ShouldNotSearchListWithoutACallbackMethod) {
     linked_list_Insert(list, item1);
 
 	linked_list_Search(list, NULL, NULL);
-
 }
 
 TEST(linked_list_Search, ShouldSearchForItemInList) {
@@ -147,7 +141,6 @@ TEST(linked_list_Search, ShouldSearchForItemInList) {
 	struct node* item3 = (struct node*) linked_list_Search(list, SearchItem, &searchKey);
 
 	EXPECT_EQ(item1, item3);
-
 }
 
 TEST(linked_list_Search, ShouldReturnNullIfItemNotInList) {
@@ -164,7 +157,6 @@ TEST(linked_list_Search, ShouldReturnNullIfItemNotInList) {
 	struct node* item2 = (struct node*) linked_list_Search(list, SearchItem, &searchKey);
 
 	EXPECT_EQ(item2, nullptr);
-
 }
 
 TEST(linked_list_Remove, ShouldReturnNullIfListEmpty) {
@@ -281,7 +273,6 @@ TEST(linked_list_Drop, ShouldNotDropEmptyList) {
     LinkedListRef** list = &_list;
 
 	linked_list_Drop(list, FreeCallbackMethod);
-
 }
 
 TEST(linked_list_Drop, ShouldNotDropListWithoutFreeCallback) {
@@ -294,7 +285,6 @@ TEST(linked_list_Drop, ShouldNotDropListWithoutFreeCallback) {
     linked_list_Insert(list, item1);
 
 	linked_list_Drop(list, NULL);
-
 }
 
 TEST(linked_list_Drop, ShouldDropValidList) {
@@ -309,5 +299,4 @@ TEST(linked_list_Drop, ShouldDropValidList) {
 	linked_list_Drop(list, FreeCallbackMethod);
 
 	EXPECT_EQ(*list, nullptr);
-
 }

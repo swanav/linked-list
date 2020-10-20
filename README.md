@@ -1,5 +1,6 @@
 ![CMake](https://github.com/swanav/LinkedList/workflows/CMake/badge.svg)
 ![CodeQL](https://github.com/swanav/LinkedList/workflows/CodeQL/badge.svg)
+[![CodeFactor](https://www.codefactor.io/repository/github/swanav/linkedlist/badge)](https://www.codefactor.io/repository/github/swanav/linkedlist)
 [![codecov](https://codecov.io/gh/swanav/LinkedList/branch/master/graph/badge.svg)](https://codecov.io/gh/swanav/LinkedList)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fswanav%2FLinkedList.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fswanav%2FLinkedList?ref=badge_shield)
 
