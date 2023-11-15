@@ -1,8 +1,8 @@
-![CMake](https://github.com/swanav/LinkedList/workflows/CMake/badge.svg)
-![CodeQL](https://github.com/swanav/LinkedList/workflows/CodeQL/badge.svg)
-[![CodeFactor](https://www.codefactor.io/repository/github/swanav/linkedlist/badge)](https://www.codefactor.io/repository/github/swanav/linkedlist)
-[![codecov](https://codecov.io/gh/swanav/LinkedList/branch/master/graph/badge.svg)](https://codecov.io/gh/swanav/LinkedList)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fswanav%2FLinkedList.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fswanav%2FLinkedList?ref=badge_shield)
+![CMake](https://github.com/swanav/linked-list/workflows/CMake/badge.svg)
+![CodeQL](https://github.com/swanav/linked-list/workflows/CodeQL/badge.svg)
+[![CodeFactor](https://www.codefactor.io/repository/github/swanav/linked-list/badge)](https://www.codefactor.io/repository/github/swanav/linked-list)
+[![codecov](https://codecov.io/gh/swanav/linked-list/branch/master/graph/badge.svg)](https://codecov.io/gh/swanav/linked-list)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fswanav%2Flinked-list.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fswanav%2Flinked-list?ref=badge_shield)
 
 # Linked List
 
@@ -125,4 +125,4 @@ Callback Method for each item in the iteration of the linked list
 
 
 ## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fswanav%2FLinkedList.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fswanav%2FLinkedList?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fswanav%2Flinked-list.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fswanav%2Flinked-list?ref=badge_large)
